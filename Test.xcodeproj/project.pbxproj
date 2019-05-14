@@ -10,6 +10,7 @@
 		C2A845E0228A698D005D0808 /* ImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A845DF228A698D005D0808 /* ImageHelpers.swift */; };
 		C2A845E2228A8EAE005D0808 /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A845E1228A8EAE005D0808 /* RestaurantDetailsViewController.swift */; };
 		C2A845E5228A910F005D0808 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A845E4228A910F005D0808 /* MapKit.framework */; };
+		C2A845E7228AA32A005D0808 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A845E6228AA329005D0808 /* MapViewController.swift */; };
 		C2C4833E228A46170012493B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C4833D228A46170012493B /* AppDelegate.swift */; };
 		C2C48340228A46170012493B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C4833F228A46170012493B /* ViewController.swift */; };
 		C2C48343228A46170012493B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C48341228A46170012493B /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		C2A845DF228A698D005D0808 /* ImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelpers.swift; sourceTree = "<group>"; };
 		C2A845E1228A8EAE005D0808 /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
 		C2A845E4228A910F005D0808 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C2A845E6228AA329005D0808 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C2C4833A228A46170012493B /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C4833D228A46170012493B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2C4833F228A46170012493B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		C2C4833C228A46170012493B /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				C2A845E6228AA329005D0808 /* MapViewController.swift */,
 				C2A845E1228A8EAE005D0808 /* RestaurantDetailsViewController.swift */,
 				C2C4833D228A46170012493B /* AppDelegate.swift */,
 				C2C4833F228A46170012493B /* ViewController.swift */,
@@ -248,6 +251,7 @@
 				C2C48340228A46170012493B /* ViewController.swift in Sources */,
 				C2C4833E228A46170012493B /* AppDelegate.swift in Sources */,
 				C2C48364228A5B5B0012493B /* LunchViewController.swift in Sources */,
+				C2A845E7228AA32A005D0808 /* MapViewController.swift in Sources */,
 				C2C48360228A599A0012493B /* API.swift in Sources */,
 				C2C4835E228A544A0012493B /* Restaurant.swift in Sources */,
 				C2C48366228A5B680012493B /* InternetViewController.swift in Sources */,

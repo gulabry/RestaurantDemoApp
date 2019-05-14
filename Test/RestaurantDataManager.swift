@@ -11,7 +11,7 @@ import UIKit
 
 class RestaurantDataManager {
     
-    private var restaurants = [Restaurant]()
+    var restaurants = [Restaurant]()
     private let lunchViewController: LunchViewController
     
     var isPhone = UIDevice.current.userInterfaceIdiom == .phone
@@ -27,7 +27,6 @@ class RestaurantDataManager {
             }
         }
     }
-    
     
     func restaurantFor(indexPath: IndexPath) -> Restaurant? {
         if isPhone {

@@ -54,11 +54,13 @@ extension UIImageView {
                 let data = data, error == nil,
                 let image = UIImage(data: data)
                 else { return }
+            
             _ = ImageManager.saveImage(image: image, named: url.lastPathComponent)
             DispatchQueue.main.async() {
                 self.image = image
             }
-            }.resume()
+            
+        }.resume()
     }
     
     func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFill) {

@@ -22,6 +22,14 @@ class LunchViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
+    
+    @IBAction func showMapModal(_ sender: Any) {
+        if let nav = UIStoryboard.main.instantiateViewController(withIdentifier: "mapNavigationController") as? UINavigationController,
+            let mapVC = nav.viewControllers.last as? MapViewController {
+            mapVC.configure(with: dataSource.restaurants)
+            show(nav, sender: nil)
+        }
+    }
 }
 
 extension LunchViewController: UICollectionViewDataSource {
@@ -49,6 +57,7 @@ extension LunchViewController: UICollectionViewDelegate {
         if let vc = UIStoryboard.main.instantiateViewController(withIdentifier: Constants.restaurantDetailsVC) as? RestaurantDetailsViewController,
             let restaurant = dataSource.restaurantFor(indexPath: indexPath) {
             vc.restaurant = restaurant
+            vc.dataSource = dataSource
             navigationController?.pushViewController(vc, animated: true)
         }
     }

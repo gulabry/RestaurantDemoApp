@@ -12,6 +12,7 @@ import MapKit
 class RestaurantDetailsViewController: UIViewController {
     
     var restaurant: Restaurant?
+    var dataSource: RestaurantDataManager?
     
     @IBOutlet weak var mapKitView: MKMapView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -36,7 +37,6 @@ class RestaurantDetailsViewController: UIViewController {
         mapBarButton.tintColor = .white
         navigationItem.rightBarButtonItem = mapBarButton
     }
-
     
     func configure(with restaurant: Restaurant) {
         
@@ -73,6 +73,13 @@ class RestaurantDetailsViewController: UIViewController {
     
     @objc func showMap(sender: UIBarButtonItem) {
         
+        guard let dataSource = dataSource else { return }
+        
+        if let nav = UIStoryboard.main.instantiateViewController(withIdentifier: "mapNavigationController") as? UINavigationController,
+            let mapVC = nav.viewControllers.last as? MapViewController {
+            mapVC.configure(with: dataSource.restaurants)
+            show(nav, sender: nil)
+        }
     }
     
     // MARK: - Navigation
