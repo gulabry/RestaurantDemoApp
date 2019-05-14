@@ -26,7 +26,12 @@ class LunchViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        //if let _ = segue.destination as? RestaurantDetailsViewController {
+            let backItem = UIBarButtonItem()
+            backItem.title = nil
+            backItem.tintColor = .white
+            navigationItem.backBarButtonItem = backItem
+        //}
     }
 }
 
@@ -41,7 +46,7 @@ extension LunchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restaurantCell", for: indexPath) as! RestaurantCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.resturantCell, for: indexPath) as? RestaurantCollectionViewCell else { return UICollectionViewCell() }
 
         dataSource.configure(cell: cell, indexPath: indexPath)
         
@@ -52,7 +57,11 @@ extension LunchViewController: UICollectionViewDataSource {
 extension LunchViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let vc = UIStoryboard.main.instantiateViewController(withIdentifier: Constants.restaurantDetailsVC) as? RestaurantDetailsViewController,
+            let restaurant = dataSource.restaurantFor(indexPath: indexPath) {
+            vc.restaurant = restaurant
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C2A845E0228A698D005D0808 /* ImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A845DF228A698D005D0808 /* ImageHelpers.swift */; };
+		C2A845E2228A8EAE005D0808 /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A845E1228A8EAE005D0808 /* RestaurantDetailsViewController.swift */; };
+		C2A845E5228A910F005D0808 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A845E4228A910F005D0808 /* MapKit.framework */; };
 		C2C4833E228A46170012493B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C4833D228A46170012493B /* AppDelegate.swift */; };
 		C2C48340228A46170012493B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C4833F228A46170012493B /* ViewController.swift */; };
 		C2C48343228A46170012493B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C48341228A46170012493B /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		C2A845DF228A698D005D0808 /* ImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelpers.swift; sourceTree = "<group>"; };
+		C2A845E1228A8EAE005D0808 /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
+		C2A845E4228A910F005D0808 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C2C4833A228A46170012493B /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C4833D228A46170012493B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2C4833F228A46170012493B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2A845E5228A910F005D0808 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +77,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2A845E3228A910F005D0808 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2A845E4228A910F005D0808 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C2C48331228A46170012493B = {
 			isa = PBXGroup;
 			children = (
 				C2C4833C228A46170012493B /* Test */,
 				C2C48351228A46180012493B /* TestTests */,
 				C2C4833B228A46170012493B /* Products */,
+				C2A845E3228A910F005D0808 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +107,7 @@
 		C2C4833C228A46170012493B /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				C2A845E1228A8EAE005D0808 /* RestaurantDetailsViewController.swift */,
 				C2C4833D228A46170012493B /* AppDelegate.swift */,
 				C2C4833F228A46170012493B /* ViewController.swift */,
 				C2C48341228A46170012493B /* Main.storyboard */,
@@ -170,6 +185,11 @@
 				TargetAttributes = {
 					C2C48339228A46170012493B = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C2C4834D228A46180012493B = {
 						CreatedOnToolsVersion = 10.2;
@@ -223,6 +243,7 @@
 			files = (
 				C2C48362228A59BC0012493B /* Constants.swift in Sources */,
 				C2C4836C228A681B0012493B /* RestaurantDataManager.swift in Sources */,
+				C2A845E2228A8EAE005D0808 /* RestaurantDetailsViewController.swift in Sources */,
 				C2C48368228A600F0012493B /* RestaurantCollectionViewCell.swift in Sources */,
 				C2C48340228A46170012493B /* ViewController.swift in Sources */,
 				C2C4833E228A46170012493B /* AppDelegate.swift in Sources */,
