@@ -14,6 +14,8 @@ class RestaurantDataManager {
     private var restaurants = [Restaurant]()
     private let lunchViewController: LunchViewController
     
+    var isPhone = UIDevice.current.userInterfaceIdiom == .phone
+    
     init(viewController: LunchViewController) {
         
         self.lunchViewController = viewController
@@ -28,16 +30,10 @@ class RestaurantDataManager {
     
     
     func restaurantFor(indexPath: IndexPath) -> Restaurant? {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return restaurants[indexPath.row]
+        if isPhone {
+            return restaurants[indexPath.section]
         } else {
-            
-            var index = indexPath.section
-            if index == 0 {
-                index += 1
-            }
-            
-            return restaurants[indexPath.section + indexPath.row]
+            return restaurants[(indexPath.section * 2) + indexPath.row]
         }
     }
     
@@ -47,7 +43,9 @@ class RestaurantDataManager {
             cell.nameLabel.text = restaurant.name
             cell.categoryTypeLabel.text = restaurant.category
             
-            if let venueImage = ImageManager.getSavedImage(named: restaurant.backgroundImageURL) {
+            guard let savedURL = URL(string: restaurant.backgroundImageURL) else { return }
+            
+            if let venueImage = ImageManager.getSavedImage(named: savedURL.lastPathComponent) {
                 cell.venueImageView.image = venueImage
             } else {
                 cell.venueImageView.image = nil
@@ -57,14 +55,18 @@ class RestaurantDataManager {
     }
     
     func numberOfSections() -> Int {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return restaurants.count
-        } else {
-            return restaurants.count / 2
-        }
+        return isPhone ? restaurants.count : restaurants.count / 2
     }
     
     func numberOfRowsInSection() -> Int {
-        return UIDevice.current.userInterfaceIdiom == .phone ? 1 : 2
+        return isPhone ? 1 : 2
+    }
+    
+    func sizeForItem(at indexPath: IndexPath) -> CGSize {
+        if isPhone {
+            return CGSize(width: lunchViewController.collectionView.frame.width, height: Constants.cellHeight)
+        } else {
+            return CGSize(width: lunchViewController.collectionView.frame.width / 2, height: Constants.cellHeight)
+        }
     }
 }

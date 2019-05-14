@@ -37,7 +37,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rkJ-Ke-oeI">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="6ZF-ZK-M6e">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6ZF-ZK-M6e">
                                     <size key="itemSize" width="414" height="203"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -45,17 +45,17 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="restaurantCell" id="X2B-o6-H76" customClass="RestaurantCollectionViewCell" customModule="Test" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="117" height="203"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="efL-6O-hnh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="203"/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellGradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="cCl-MD-G88">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="203"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f39-h8-qbT">
                                                     <rect key="frame" x="14" y="156" width="41" height="22"/>
@@ -87,6 +87,7 @@
                                             <constraint firstAttribute="trailing" secondItem="cCl-MD-G88" secondAttribute="trailing" id="tqr-Xi-E6W"/>
                                             <constraint firstItem="efL-6O-hnh" firstAttribute="top" secondItem="X2B-o6-H76" secondAttribute="top" id="uKd-2a-9YH"/>
                                         </constraints>
+                                        <size key="customSize" width="117" height="203"/>
                                         <connections>
                                             <outlet property="categoryTypeLabel" destination="0lL-Kb-m4u" id="Z3S-U1-fe2"/>
                                             <outlet property="gradientImageView" destination="cCl-MD-G88" id="QK0-wW-No9"/>
@@ -123,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XbH-Ru-3gK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="499" y="-237"/>
+            <point key="canvasLocation" x="498.55072463768118" y="-237.05357142857142"/>
         </scene>
         <!--Restaurant Details View Controller-->
         <scene sceneID="7b8-g2-El9">

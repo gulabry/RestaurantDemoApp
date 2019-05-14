@@ -22,17 +22,6 @@ class LunchViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if let _ = segue.destination as? RestaurantDetailsViewController {
-            let backItem = UIBarButtonItem()
-            backItem.title = nil
-            backItem.tintColor = .white
-            navigationItem.backBarButtonItem = backItem
-        //}
-    }
 }
 
 extension LunchViewController: UICollectionViewDataSource {
@@ -67,6 +56,6 @@ extension LunchViewController: UICollectionViewDelegate {
 
 extension LunchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: Constants.cellHeight)
+        return dataSource.sizeForItem(at: indexPath)
     }
 }
