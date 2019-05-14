@@ -7,26 +7,83 @@
 //
 
 import UIKit
+import WebKit
 
 class InternetViewController: UIViewController {
     
-    //var webView
+    lazy var webView: WKWebView = {
+        let webView = WKWebView(frame: .zero)
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        webView.navigationDelegate = self
+        view.addSubview(webView)
+        webView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        webView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        webView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        webView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        return webView
+    }()
+    
+    let baseUrl = URL(string: Constants.bottleRocketUrlString)!
+    
+    //  Navigation Buttons for Top Bar
+    
+    lazy var backBarButton: UIBarButtonItem = {
+        let item = UIBarButtonItem(image: Constants.backButton, style: .plain, target: self, action: #selector(InternetViewController.backPage(sender:)))
+        item.tintColor = .white
+        return item
+    }()
+    
+    lazy var forwardBarButton: UIBarButtonItem = {
+        let item = UIBarButtonItem(image: Constants.forwardButton, style: .plain, target: self, action: #selector(InternetViewController.forwardPage(sender:)))
+        item.tintColor = .white
+        return item
+    }()
+    
+    lazy var refreshBarButton: UIBarButtonItem = {
+        let item = UIBarButtonItem(image: Constants.refreshButton, style: .plain, target: self, action: #selector(InternetViewController.refreshPage(sender:)))
+        item.tintColor = .white
+        return item
+    }()
+    
+    //  MARK: View Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupSafariView()
+        setupNavigationButtons()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupSafariView() {
+        webView.load(URLRequest(url: baseUrl))
     }
-    */
+    
+    func setupNavigationButtons() {
+        navigationItem.leftBarButtonItems = [backBarButton, refreshBarButton, forwardBarButton]
+    }
+    
+    //  MARK: Web Page Navigation
+    
+    @objc func backPage(sender: UIBarButtonItem) {
+        webView.goBack()
+    }
+    
+    @objc func forwardPage(sender: UIBarButtonItem) {
+        webView.goForward()
+    }
+    
+    @objc func refreshPage(sender: UIBarButtonItem) {
+        guard let currentUrl = webView.url else { return }
+        webView.load(URLRequest(url: currentUrl))
+    }
+}
 
+extension InternetViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(.allow)
+    }
+}
+
+extension InternetViewController: WKUIDelegate {
+    
 }

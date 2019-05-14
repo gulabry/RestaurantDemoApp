@@ -23,10 +23,6 @@ class LunchViewController: UIViewController {
         collectionView.delegate = self
     }
     
-    func setupNavigationBar() {
-        
-    }
-    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
